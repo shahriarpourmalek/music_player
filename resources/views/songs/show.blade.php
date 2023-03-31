@@ -18,10 +18,5 @@
             </div>
         </div>
     </div>
-    <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
-<script>
-    import Pusher from 'pusher-js'
-
-</script>
 
 @endsection

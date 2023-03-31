@@ -30,11 +30,11 @@ class SongController extends Controller
     {
         $file = $request->file('file');
         $filename = $file->getClientOriginalName();
-        $url = Storage::disk('public')->put('', $file);
+        $url = Storage::disk('public')->put('uploads', $file);
         Song::create([
             'title' => $request->input('title'),
             'artist' => $request->input('artist'),
-            'file' => 'uploads/' . $url,
+            'file' => $url,
         ]);
 
         return redirect()->route('songs.index');
@@ -43,7 +43,7 @@ class SongController extends Controller
     public function show(Song $song)
     {
 
-     event(new MusicStreamEvent($song));
+        event(new MusicStreamEvent($song));
         return view('songs.show', compact('song'));
     }
 
